@@ -1,10 +1,10 @@
 
-module.exports = ({ env }) => ({
-    gzip: {
-    enabled: true,
-    options: {
-      br: false
-    }
-  },
+// module.exports = ({ env }) => ({
+//     gzip: {
+//     enabled: true,
+//     options: {
+//       br: false
+//     }
+//   },
   
-});
+// });
