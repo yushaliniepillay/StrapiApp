@@ -21,6 +21,24 @@
           }
           .then(message => console.log(message.sid))
       });
+
+        const ORMModel = await strapi.query('contact', plugin).model;
+        const mailOptions = await strapi.plugins['email'].services.email.send({
+             from: `${contact.email}`,
+             to: 'yusha.b@avowstech.com',
+             subject: `${contact.services}`,
+             text: `${contact.message}`
+         });
+         strapi.log.debug(`Email sent to ${contact.email}`)
+         ctx.send({ message: "Email sent!" })
+ 
+         transporter.sendMail(mailOptions, function (error, info) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 console.log('Email sent: ' + info.response);
+             }
+         });
     }
 
  let sendMsg = function(){
